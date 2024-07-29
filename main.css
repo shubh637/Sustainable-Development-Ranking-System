@@ -160,7 +160,7 @@
 }
 #project2{
     background-image: url(./Shutterstock_1278873550-1.jpg); 
-    right: 5%;  
+    left: 10%;  
 }
 #project3{
     background-image: url(./istockphoto-157603061-612x612.jpg);
@@ -218,6 +218,7 @@
   }
 #project4{
     background-image: url(./1.png);
+    left: 160px;
   }
   #fcf-form {
     display:block;
@@ -675,3 +676,39 @@ input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[typ
 #project5{
     background-image: url(./carbonfootprint.jpg);
 }
+ .navbar-custom {
+            background-color: transparent;
+        }
+        .nav-link {
+            color: #32cd32 !important;
+            font-weight: bold;
+            font-family: serif;
+        }
+        .nav-link:hover {
+            color: #228b22 !important;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .btn-custom {
+            background-color: #32cd32;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-custom:hover {
+            background-color: #228b22;
+        }
+        .group-hover:hover .hover-line {
+            display: block;
+        }
+        .hover-line {
+            display: none;
+            width: 90%;
+            height: 1px;
+            background-color: #32cd32;
+            margin: 0 auto;
+            margin-top: 2px;
+            border-radius: 0.5rem;
+        }
