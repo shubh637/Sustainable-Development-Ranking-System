@@ -9,55 +9,79 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    <h1 id="title">Energy Consumption</h1>
+  <div class="container-main">
+  <div id="title" >
+    <h1 >Energy Consumption</h1>
+    <p id="para">Energy consumption by the organization playes the important part in their ranking system . therfore here is the calculator to calculate the engery consumption by organizations.</p>
+  </div>  
     <div class="align">
         <div id="new">
 		<div id="create">
 		<div id="result">
             <div id="calc">
-            <form id="frmcalculate">
-                  
-                <p class="marpad">Hours Used Per Day: <input type="text" size="5" id="hoursPerDay" ></p>
-                <p class="marpad">Power Use (Watts): <input type="text" size="5" id="powerWatts"  value=""></p>
-                <p class="marpad">Price (kWh): <input type="text" size="5" id="Price" ></p>
-                <p class="marpad">month:<input  type="text" size="2" id="month"  ></p>
-                <input type="submit" class="button" value="Calculate" onclick="energyCost()">
-            </form>
+              <div class="form-container">
+                <h1>Energy</h1>
+                <form id="frmcalculate">
+                    <div class="form-group">
+                        <label for="hoursPerDay">Hours Used Per Day:</label>
+                        <input type="text" id="hoursPerDay" size="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="powerWatts">Power Use (Watts):</label>
+                        <input type="text" id="powerWatts" size="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Price (kWh):</label>
+                        <input type="text" id="Price" size="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month:</label>
+                        <input type="text" id="month" size="2">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="button" value="Calculate" onclick="energyCost(); return false;">
+                    </div>
+                </form>
+            </div>
          </div>
        
-        <div class="container text-center">
-            <div class="row">
+         <div class="container text-center">
+          <div class="row">
               <div class="col">
-                <h1 id="costPerHour"></h1>
-                <p class="marpad">Cost Per Hour</p>
+                  <h1 id="costPerHour">$0.00</h1>
+                  <p class="marpad">Cost Per Hour</p>
               </div>
               <div class="col">
-                <h1 id="costPerDay"></h1>
-                <p class="marpad">Cost Per Day</p>
+                  <h1 id="costPerDay">$0.00</h1>
+                  <p class="marpad">Cost Per Day</p>
               </div>
               <div class="col">
-                <h1 id="costPerMonth"></h1>
-                <p class="marpad">Cost Per Month</p>
+                  <h1 id="costPerMonth">$0.00</h1>
+                  <p class="marpad">Cost Per Month</p>
               </div>
               <div class="col">
-                <h1 id="costPerYear" ></h1>
-			   <p class="marpad">Cost Per Year</p>
+                  <h1 id="costPerYear">$0.00</h1>
+                  <p class="marpad">Cost Per Year</p>
               </div>
               <div class="col">
-                <h1 id="kwhPerDay" ></h1>  
-                <p class="marpad">kWh Per Day</p>
+                  <h1 id="kwhPerDay">0.00</h1>  
+                  <p class="marpad">kWh Per Day</p>
               </div>
-            </div>
-		</div>
-        <div id="image">
-        <img src="./WhatsApp Image 2023-09-12 at 10.13.28.jpg" class="img-fluid rounded-top" alt="energy consumption">
-    </div>
+          </div>
+      </div>
+  
+      
+   
 </div>
 </div>
 </div>
 </div>
-        
+</div>        
         
     <script src="./index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
