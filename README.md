@@ -31,6 +31,8 @@ This project aims to create a comprehensive assessment framework to evaluate org
 4. Launch and Promotion: Roll out the ranking system publicly, accompanied by educational materials and outreach efforts to raise awareness and encourage participation.
 5. Continuous Improvement: Collect feedback and data from stakeholders to iteratively improve the ranking methodology and address emerging sustainability challenges.
 6. link:https://shubh637.github.io/Sustainable-Development-Ranking-System/
+![calculators](https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/Screenshot%202024-07-29%20171128.png)
+![dashboard](https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/Screenshot%202024-07-29%20171224.png)
 
 ## Conclusion:
 By developing a robust ranking system for evaluating organizations' contributions to the SDGs, this project aims to incentivize and recognize sustainable practices, ultimately driving progress towards a more equitable, resilient, and environmentally sustainable future.
