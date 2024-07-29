@@ -2,10 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
+
 .project-card{
     width: 80%;
     height: 550px;
