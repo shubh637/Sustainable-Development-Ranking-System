@@ -30,9 +30,9 @@ var month=document.querySelector("#month").value
     const date= new Date()
     document.getElementById("costPerHour").innerHTML=b/24;
     console.log(b);
-    document.getElementById("costPerMonth").innerHTML=b*getDaysInMonth(month,date.getFullYear());
+    document.getElementById("costPerMonth").innerHTML=price*b*getDaysInMonth(month,date.getFullYear());
     document.getElementById("costPerDay").innerHTML=b*price;
-    document.getElementById("costPerYear").innerHTML=b*365;
+    document.getElementById("costPerYear").innerHTML=b*365*price;
     document.getElementById("kwhPerDay").innerHTML=b;
 
 

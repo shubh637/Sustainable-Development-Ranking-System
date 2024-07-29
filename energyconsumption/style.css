@@ -8,67 +8,109 @@ h1{
     line-height: 1.2;
 
 }
-#title{
-    background-color: azure;
+img{
+ 
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
-
-#create{
-    text-align: center;
-    font-weight: 1000px;
+#title{
+  background-image:url("https://www.repsol.com/content/dam/repsol-corporate/es/energia-e-innovacion/consumo-energetico-cabecera.jpg.transform/rp-rendition-md/image.jpg");
+    height:200px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding:20px;
+    margin-bottom: 10px;
 }
 p{
-    text-decoration: solid;
-    font-size: larger;
-    font-family:fantasy;
-
+  text-align: center;
 }
-.container{
-    margin-top: 40px;
-    height: 100px;
-    width: 200px;
-    border: none;
 
-
-} 
-input{
-    text-transform: capitalize;
-    border:none;
-   
-
-}
-.button{
-    background-color: rgb(119, 180, 198);
-    height:40px;
-    width:100px;
-    border-radius:5px ;
-}
-#image{
-  display:grid;
-   grid-area: auto;
-    width: 800px;
-    position :absolute;
-    right:350px;
-    padding-bottom: 100px;
-    border-radius: 50x;
-    
-    
-}
-#title{
-    background: linear-gradient(300deg, #bee7e2, #a3b2ba, #7ac262);
-    background-size: 200% 1000%;
-    animation: gradient-animation 10s ease infinite;
-    
-  }
   
-  @keyframes gradient-animation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
+
+
+body {
+   
+    font-family:fantasy;
+    margin: 0;
+    padding: 20px;
+}
+.form-container {
+    max-width: 400px;
+    margin-top: 10px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-group input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #218838;
+}
+.container {
+  margin-top: 30px;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.col {
+  text-align: center;
+  margin: 10px;
+}
+.col h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+.col p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #666;
+}
+.col:nth-child(odd) h1 {
+  color: #28a745;
+}
+.col:nth-child(even) h1 {
+  color: #007bff;
+}
+.marpad {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
