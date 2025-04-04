@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>EEVTA Calculator | Education Access Assessment</title>
+  <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+  <meta name="description" content="Calculate your institution's EEVTA score for Equal Access to Affordable Technical, Vocational, and Higher Education">
+  
+     <!-- Favicons -->
+  <link href="{% static  'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'assets/css/form2.css' %}">
+
+  
+</head>
+
+<body>
+  <!-- Header -->
+{% include 'header.html'%}
+
+  <main class="main">
+    <div class="container">
+      <div class="eevta-calculator-container">
+        <!-- Calculator Header -->
+        <div class="calculator-header">
+          <h1>EEVTA Assessment Tool</h1>
+          <p>Measure your institution's performance in providing Equal Access to Affordable Technical, Vocational, and Higher Education</p>
+        </div>
+        
+        <!-- Progress Steps -->
+        <ul class="form-stepper">
+          <li class="form-stepper-list form-stepper-active" step="1">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>1</span>
+              </span>
+              <div class="label">Institution Data</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="2">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>2</span>
+              </span>
+              <div class="label">Accessibility</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="3">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>3</span>
+              </span>
+              <div class="label">Affordability</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="4">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>4</span>
+              </span>
+              <div class="label">Quality</div>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Form Steps -->
+        <form id="eevtaCalculatorForm" action="{% url 'calculate_eevta_score' %}" method="POST">
+          <!-- Step 1 - Institution Data -->
+           {% csrf_token%}
+          <section id="step-1" class="form-step active">
+            <h2>Institution Information</h2>
+            
+            <div class="mb-4">
+              <label for="institutionName" class="form-label">Institution Name</label>
+              <input type="text" class="form-control" id="institutionName" placeholder="Enter your institution name">
+            </div>
+            
+            <div class="mb-4">
+              <label for="institutionType" class="form-label">Institution Type</label>
+              <select class="form-control" id="institutionType">
+                <option value="">Select institution type</option>
+                <option value="technical">Technical Institute</option>
+                <option value="vocational">Vocational School</option>
+                <option value="university">University</option>
+                <option value="community">Community College</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="totalStudents" class="form-label">Total Number of Students</label>
+              <input type="number" name="totalStudents" class="form-control" id="totalStudents" placeholder="Enter total student population">
+            </div>
+            
+            <div class="mb-4">
+              <label for="location" class="form-label">Institution Location</label>
+              <select class="form-control" id="location">
+                <option value="">Select location</option>
+                <option value="urban">Urban</option>
+                <option value="suburban">Suburban</option>
+                <option value="rural">Rural</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 2 - Accessibility -->
+          <section id="step-2" class="form-step">
+            <h2>Accessibility Metrics</h2>
+            
+            <div class="mb-4">
+              <label for="techVocStudents" class="form-label">Number of Students in Technical/Vocational Programs</label>
+              <input type="number" name="techVocStudents" class="form-control" id="techVocStudents" placeholder="Enter number of students">
+            </div>
+            
+            <div class="mb-4">
+              <label for="disabilityAccess" class="form-label">Accessibility for Students with Disabilities</label>
+              <select class="form-control" id="disabilityAccess">
+                <option value="">Select accessibility level</option>
+                <option value="excellent">Excellent - Fully accessible facilities</option>
+                <option value="good">Good - Most facilities accessible</option>
+                <option value="fair">Fair - Some accessibility features</option>
+                <option value="poor">Poor - Limited accessibility</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="distanceLearning" class="form-label">Percentage of Courses Available Through Distance Learning</label>
+              <input type="number" name="distanceLearning" class="form-control" id="distanceLearning" min="0" max="100" placeholder="Enter percentage (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="eveningPrograms" class="form-label">Availability of Evening/Weekend Programs</label>
+              <select class="form-control" id="eveningPrograms">
+                <option value="">Select availability</option>
+                <option value="extensive">Extensive - Many programs available</option>
+                <option value="moderate">Moderate - Some programs available</option>
+                <option value="limited">Limited - Few programs available</option>
+                <option value="none">None - No evening/weekend programs</option>
+              </select>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="1"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 3 - Affordability -->
+          <section id="step-3" class="form-step">
+            <h2>Affordability Metrics</h2>
+            
+            <div class="mb-4">
+              <label for="avgTuition" class="form-label">Average Annual Tuition Fee (Local Currency)</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" id="avgTuition" placeholder="Enter average tuition">
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label for="scholarshipStudents" class="form-label">Number of Students Receiving Scholarships</label>
+              <input type="number" name="scholarshipStudents" class="form-control" id="scholarshipStudents" placeholder="Enter number of students">
+            </div>
+            
+            <div class="mb-4">
+              <label for="financialAid" class="form-label">Percentage of Students Receiving Financial Aid</label>
+              <input type="number" name='financialAid' class="form-control" id="financialAid" min="0" max="100" placeholder="Enter percentage (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="paymentPlans" class="form-label">Availability of Flexible Payment Plans</label>
+              <select class="form-control" id="paymentPlans">
+                <option value="">Select availability</option>
+                <option value="extensive">Extensive - Many flexible options</option>
+                <option value="moderate">Moderate - Some options available</option>
+                <option value="limited">Limited - Few options available</option>
+                <option value="none">None - No flexible payment plans</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="textbookCost" class="form-label">Average Annual Textbook/Materials Cost (Local Currency)</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" id="textbookCost" placeholder="Enter average cost">
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="4">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 4 - Quality -->
+          <section id="step-4" class="form-step">
+            <h2>Quality Metrics</h2>
+            
+            <div class="mb-4">
+              <label for="gradRate" class="form-label">Graduation Rate (%)</label>
+              <input type="number" name='gradRate' class="form-control" id="gradRate" min="0" max="100" placeholder="Enter graduation rate (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="employmentRate" class="form-label">Employment Rate After Graduation (%)</label>
+              <input type="number" name="employmentRate" class="form-control" id="employmentRate" min="0" max="100" placeholder="Enter employment rate (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="facultyQualification" class="form-label">Percentage of Faculty with Advanced Degrees</label>
+              <input type="number" class="form-control" id="facultyQualification" min="0" max="100" placeholder="Enter percentage (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="facilitiesRating" class="form-label">Quality of Technical Facilities</label>
+              <select class="form-control" id="facilitiesRating">
+                <option value="">Select rating</option>
+                <option value="excellent">Excellent - State-of-the-art facilities</option>
+                <option value="good">Good - Well-maintained and adequate</option>
+                <option value="fair">Fair - Functional but outdated</option>
+                <option value="poor">Poor - Insufficient or inadequate</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label class="form-label">Does your institution offer career counseling services?</label>
+              <div class="alert alert-danger" role="alert" id="counseling-alert" style="display: none;">
+                <strong>Oops!</strong> Please select an option
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="counselingOptionsRadios" id="optionsRadio1" value="yes">
+                <label class="form-check-label" for="optionsRadio1">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="counselingOptionsRadios" id="optionsRadio2" value="no">
+                <label class="form-check-label" for="optionsRadio2">No</label>
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button id="calculate-btn" type="submit" class="btn btn-primary">Calculate EEVTA Score <i class="bi bi-calculator"></i></button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </main>
+
+{% include 'footer.html' %}
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Calculator Logic -->
+  <script src="{% static 'assets/js/form1.js' %}" defer></script>
+</body>
+</html>

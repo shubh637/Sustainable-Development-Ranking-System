@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sustainable-Development-Ranking-System</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+  <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="index-page">
+
+  <main class="main">
+    {% include 'header.html' %}
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static  'assets/img/hero-bg.avif' %}" alt="" data-aos="fade-in">
+
+      <div class="container d-flex flex-column align-items-center">
+        <h2 data-aos="fade-up" data-aos-delay="100">INNOVATE. SUSTAIN. IMPACT.</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Empowering a sustainable future through innovative solutions and
+          responsible development.</p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="#about" class="btn-get-started">Learn More</a>
+          <!-- <a href="{% static 'assets/videos/videoplayback.mp4' %}"
+            class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
+              Video</span></a> -->
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3>Sustainable Ranking System for Organizations</h3>
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4" alt="">
+            <p>Empowering organizations to drive sustainable development through transparency, accountability, and data-driven insights.</p>
+            <p>
+              Our <b>Sustainable Ranking System</b> evaluates organizations based on their contributions towards the <b>Sustainable Development Goals (SDGs)</b>. 
+              By analyzing key performance indicators (KPIs) across environmental, social, economic, and governance aspects, 
+              this system provides a standardized and transparent approach to measuring sustainability efforts.  
+              Organizations can leverage these rankings to improve their sustainability strategies and create a positive impact on society and the planet.
+            </p>
+          </div>
+          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Sustainability rankings encourage organizations to adopt responsible business practices, fostering long-term environmental and social impact.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Assessing carbon footprint, renewable energy use, and resource efficiency.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Evaluating corporate social responsibility (CSR) initiatives and ethical labor practices.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Ranking of organizations based on different SDGs and show its sustainability score.</span></li>
+              </ul>
+              <p>
+                This ranking system fosters healthy competition, encourages organizations to enhance their sustainability efforts, 
+                and provides valuable insights for investors, policymakers, and stakeholders to make informed decisions.
+              </p>
+        
+              <div class="position-relative mt-4">
+                <img src="{% static 'assets/img/about-2.jpg' %}" class="img-fluid rounded-4" alt="">
+                <!-- <a href="{% static 'assets/videos/videoplayback.mp4' %}" class="glightbox pulsating-play-btn"></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+    </section><!-- /About Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Our Key Sustainability Initiatives Calculators</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static  'assets/img/services-1.avif' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-cloud"></i>
+                </div>
+                <a href="{% url 'dynamic_page' page_name='service-details' %}" class="stretched-link">
+                  <h3>Carbon Emission Calculation</h3>
+                </a>
+                <p>Implementing strategies to minimize carbon footprints through renewable energy adoption and
+                  sustainable practices.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static  'assets/img/services-2.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-lightning"></i>
+                </div>
+                <a href="{% url 'dynamic_page' page_name='service-details2' %}" class="stretched-link">
+                  <h3>EEVTA (Electric & Efficient Vehicle Transition Aid) Calculator</h3>
+                </a>
+                <p> Enhancing sustainability in transportation
+                  and mobility for better future.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static  'assets/img/services-3.avif' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-speedometer"></i>
+                </div>
+                <a href="{% url 'dynamic_page' page_name='service-details3' %}" class="stretched-link">
+                  <h3>Energy Consumption Calculator</h3>
+                </a>
+                <p>Enhancing energy efficiency through smart technology, renewable integration, and responsible
+                  consumption strategies.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static  'assets/img/services-4.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-recycle"></i>
+                </div>
+                <a href="{% url 'dynamic_page' page_name='service-details4' %}" class="stretched-link">
+                  <h3>Waste Production Calculator</h3>
+                </a>
+                <p>Implementing innovative waste management solutions to promote recycling and reduce environmental
+                  impact.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static  'assets/img/services-5.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-clipboard-check"></i>
+                </div>
+                <a href="{% url 'dynamic_page' page_name='result-page' %}" class="stretched-link">
+                  <h3>Sustainability Performance Evaluation</h3>
+                </a>
+                <p>
+                  View and analyze your test results with detailed insights, graphical representations, and expert
+                  recommendations.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static 'assets/img/services-6.avif' %}" class="img-fluid" alt="Dashboard Analysis">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-bar-chart-line"></i>
+              </div>
+                <h3>
+                  <a href="{% url 'dashboard' %}" class="stretched-link">Sustainable Development Scoreboard</a>
+                </h3>
+                <p>View and analyze your test results with detailed insights, graphical representations, and expert
+                  recommendations.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <!-- Features Section -->
+      <section id="features" class="features section">
+
+        <div class="container">
+
+          <ul class="nav nav-tabs row d-flex" data-aos="fade-up" data-aos-delay="100">
+            <li class="nav-item col-3">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                <i class="bi bi-cloud"></i>
+                <h4 class="d-none d-lg-block">Carbon Emission</h4>
+              </a>
+            </li>
+            <li class="nav-item col-3">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                <i class="bi bi-ev-front"></i>
+                <h4 class="d-none d-lg-block">EEVTA</h4>
+              </a>
+            </li>
+            <li class="nav-item col-3">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                <i class="bi bi-lightbulb"></i>
+                <h4 class="d-none d-lg-block">Energy Consumption</h4>
+              </a>
+            </li>
+            <li class="nav-item col-3">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
+                <i class="bi bi-recycle"></i>
+                <h4 class="d-none d-lg-block">Waste Reduction</h4>
+              </a>
+            </li>
+          </ul><!-- End Tab Nav -->
+
+          <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Carbon Emission -->
+            <div class="tab-pane fade active show" id="features-tab-1">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                  <h3>Reducing Carbon Footprint for a Sustainable Future</h3>
+                  <p class="fst-italic">
+                    Implementing effective strategies to lower carbon emissions and combat climate change.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> <span>Adopting renewable energy sources to replace fossil
+                        fuels.</span></li>
+                    <li><i class="bi bi-check2-all"></i> <span>Improving fuel efficiency in transportation and
+                        logistics.</span></li>
+                    <li><i class="bi bi-check2-all"></i> <span>Encouraging green infrastructure and eco-friendly
+                        practices.</span></li>
+                  </ul>
+                  <p>
+                    Our commitment to reducing carbon emissions helps create a cleaner, healthier environment while
+                    ensuring compliance with global sustainability standards.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="{% static  'assets/img/working-1.avif' %}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End Carbon Emission -->
+
+            <!-- EEVTA -->
+            <div class="tab-pane fade" id="features-tab-2">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                  <h3>EEVTA: Enhancing Electric Vehicle Technology & Adoption</h3>
+                  <p>
+                    Promoting the widespread use of electric vehicles through innovative solutions and policy support.
+                  </p>
+                  <p class="fst-italic">
+                    Electric vehicles play a vital role in reducing reliance on fossil fuels and cutting emissions.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> <span>Use of high-efficiency battery vehicals for extended
+                        range.</span></li>
+                    <li><i class="bi bi-check2-all"></i> <span>Establishing extensive charging infrastructure for
+                        convenience.</span></li>
+                    <li><i class="bi bi-check2-all"></i> <span>Encouraging government incentives for electric vehicle
+                        adoption.</span></li>
+                  </ul>
+                  <p class="fst-italic">
+                    Electric vehicals for better future and environment protection.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="{% static  'assets/img/working-2.avif' %}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End EEVTA -->
+
+            <!-- Energy Consumption -->
+            <div class="tab-pane fade" id="features-tab-3">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                  <h3>Optimizing Energy Consumption for Efficiency</h3>
+                  <p>
+                    Implementing smart technologies to monitor and reduce energy waste in industries and households.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> <span>Utilizing AI-powered energy management systems.</span>
+                    </li>
+                    <li><i class="bi bi-check2-all"></i> <span>Integrating renewable energy into the power grid.</span>
+                    </li>
+                    <li><i class="bi bi-check2-all"></i> <span>Encouraging businesses and individuals to adopt
+                        energy-saving practices.</span></li>
+                  </ul>
+                  <p class="fst-italic">
+                    A sustainable energy strategy reduces costs while benefiting the planet.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="{% static  'assets/img/working-3.avif' %}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End Energy Consumption -->
+
+            <!-- Waste Reduction -->
+            <div class="tab-pane fade" id="features-tab-4">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                  <h3>Minimizing Waste Through Recycling & Reuse</h3>
+                  <p>
+                    Reducing waste production by implementing circular economy principles and sustainable manufacturing.
+                  </p>
+                  <p class="fst-italic">
+                    Our focus on waste reduction ensures minimal environmental impact while maximizing resource
+                    efficiency.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> <span>Encouraging composting and responsible waste
+                        disposal.</span></li>
+                    <li><i class="bi bi-check2-all"></i> <span>Promoting zero-waste manufacturing techniques.</span>
+                    </li>
+                    <li><i class="bi bi-check2-all"></i> <span>Advocating for plastic-free packaging
+                        alternatives.</span></li>
+                  </ul>
+                  <p class="fst-italic">
+                    Encourage organizations to implement proper waste management practices.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="{% static  'assets/img/working-4.avif' %}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End Waste Reduction -->
+
+          </div>
+
+        </div>
+
+      </section><!-- /Features Section -->
+
+
+      <section id="portfolio" class="portfolio section">
+
+        <!-- Section Title -->
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+          <h2>All about sustainablity </h2>
+          <p>SUSTAINABLE DEVELOPMENT GOALS</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+          <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+            <div class="row gy-4 isotope-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200"
+              style="position: relative; height: 984px;">
+
+              {% for i, sdg in sdg_data.items %}
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sdg">
+                <div class="portfolio-content h-100">
+                  <img src="{% static 'assets/img/E_SDG_PRINT-' %}{{ i }}.jpg" class="img-fluid" alt="SDG {{ i }}">
+                  <div class="portfolio-info">
+                    <h4>{{ sdg.title }}</h4>
+                    <p>{{ sdg.description }}</p>
+                    <a href="{% static 'assets/img/E_SDG_PRINT-' %}{{ i }}.jpg" title="{{ sdg.title }}"
+                      data-gallery="portfolio-gallery-sdg" class="glightbox preview-link">
+                      <i class="bi bi-zoom-in"></i>
+                    </a>
+                    <a href="{{ sdg.link }}" title="More Details" class="details-link">
+                      <i class="bi bi-link-45deg"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+
+            </div><!-- End Portfolio Container -->
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- /Contact Section -->
+      <section id="contact" class="contact section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Neccessary details to contact us.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="row gy-4">
+            <div class="col-lg-6 ">
+              <div class="row gy-4">
+
+                <div class="col-lg-12">
+                  <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-6">
+                  <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+1 5589 55488 55</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-6">
+                  <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>info@example.com</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+                data-aos-delay="500">
+                <div class="row gy-4">
+
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  </div>
+
+                  <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                    <button type="submit">Send Message</button>
+                  </div>
+
+                </div>
+              </form>
+            </div><!-- End Contact Form -->
+
+          </div>
+
+        </div>
+
+      </section><!-- /Contact Section -->
+
+  </main>
+
+  {% include 'footer.html' with index=True %}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static  'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static  'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static  'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static  'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static  'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

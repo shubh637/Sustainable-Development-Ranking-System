@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4cc9f0;
+    --warning-color: #f8961e;
+    --danger-color: #f94144;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    --gold: #FFD700;
+    --silver: #C0C0C0;
+    --bronze: #CD7F32;
+    --my-company: #28a745;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+}
+
+.dashboard-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 0;
+    margin:150px ;
+    margin-bottom: 2rem;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.metric-card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card-header {
+    font-weight: 600;
+    border-bottom: none;
+    background-color: white;
+    padding: 1.25rem 1.5rem;
+}
+
+.highlight-row {
+    background-color: rgba(40, 167, 69, 0.1) !important;
+    border-left: 3px solid var(--my-company);
+}
+
+.highlight-row td {
+    background-color:rgba(var(--my-company-rgb), 0.2);
+    font-weight: 500;
+}
+
+.highlight-row td:first-child {
+    color: inherit;
+}
+
+.badge-rank-1 {
+    background-color: var(--gold) !important;
+    color: #000;
+}
+
+.badge-rank-2 {
+    background-color: var(--silver) !important;
+    color: #000;
+}
+
+.badge-rank-3 {
+    background-color: var(--bronze) !important;
+    color: #000;
+}
+
+.trend-indicator {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.radar-chart-container {
+    position: relative;
+    height: 300px;
+}
+
+@media (max-width: 768px) {
+    .metric-value {
+        font-size: 2rem;
+    }
+}

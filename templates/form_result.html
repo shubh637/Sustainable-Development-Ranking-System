@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator Result</title>
+    <!-- Favicons -->
+    <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+    <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <!-- <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet"> -->
+    <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/form1.css' %}">
+</head>
+
+<body>
+    {% include 'header.html' %}
+    <main class="main">
+        <div class="container">
+            <div class="carbon-calculator-container">
+                <!-- Calculator Header -->
+                <div class="calculator-header">
+                    <h1>{{heading}}</h1>
+                    <p>{{sub_heading}}
+                    </p>
+                </div>
+                <div id="results">
+                    <h1 id="score">{{score}}</h1>
+                    <p class="lead">{{message}}</p>
+
+                    <div class="row mt-4">
+                        {% for key, value in categories.items %}
+                            <div class="col-1-md-3">
+                                <div class="card bg-{{ value.color }} text-white mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ key }}</h5>
+                                        <p class="card-text">{{ value.range }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                       
+                   
+                    <div class="text-center mt-4">
+                        <a href="{% url 'dynamic_page' page_name=page %}"><button id="recalculate-btn"
+                                class="btn btn-outline-primary">Recalculate <i
+                                    class="bi bi-arrow-repeat"></i></button></a>
+                    </div>
+                    {% if show_temp %}
+                    <div class="mt-5">
+                        <h4 class="text-center mb-4">How You Compare</h4>
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/105x38?text=Your+Footprint" class="img-fluid mb-2"
+                                    alt="Your footprint">
+                                <h5>Your Footprint</h5>
+                                <p>{{score}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/105x208?text=Country+Avg" class="img-fluid mb-2"
+                                    alt="Country average">
+                                <h5>Country Average</h5>
+                                <p>1.73 metric tons (India)</p>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/105x240?text=World+Target" class="img-fluid mb-2"
+                                    alt="World target">
+                                <h5>World Target</h5>
+                                <p>2 metric tons</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if show_breakdown %}
+                        <div class="consumption-breakdown">
+                            <h4>Energy Consumption Breakdown</h4>
+
+                            {% for key, data in consumption_breakdown.items %}
+                                <div class="consumption-item">
+                                    <span>{{ key }}:</span>
+                                    <span id="{{ data.id }}">{{ data.value }} {{ data.unit }}</span>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    {% endif %}
+                    {% if show_waste_breakdown %}
+                        <div class="consumption-breakdown">
+                            <h4>Waste Breakdown</h4>
+
+                            {% for key, data in waste_breakdown.items %}
+                                <div class="consumption-item">
+                                    <span>{{ key }}:</span>
+                                    <span id="{{ data.id }}">{{ data.value }} {{ data.unit }}</span>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    {% endif %}
+
+
+                    <div class="mt-5">
+                        <h4 class="text-center mb-3">Sustainability Benchmarks</h4>
+                        <ul class="list-group">
+                            {% for suggestion in suggestions%}
+                            <li class="list-group-item">{{suggestion}}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- {% include 'footer.html'%} -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Calculator Logic -->
+    <script src="{% static 'assets/js/form1.js' %}"></script>
+
+</body>
+
+</html>
