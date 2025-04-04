@@ -1,0 +1,294 @@
+/*--------------------------------------------------------------
+# General Styling
+--------------------------------------------------------------*/
+body {
+    color: var(--default-color);
+    background: linear-gradient(135deg, #0a4a1a 0%,rgb(220, 225, 220), #5f9962 100%);
+    font-family: var(--default-font);
+    min-height: 100vh;
+    animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Energy Calculator Specific Styles
+--------------------------------------------------------------*/
+.energy-calculator-container {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    background: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calculator-header h1 {
+    color: #0a4a1a;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.calculator-header p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-size: 18px;
+}
+
+/* Progress Steps */
+.form-stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 0;
+    list-style: none;
+}
+
+.form-stepper-list {
+    flex: 1;
+    position: relative;
+}
+
+.form-stepper-list:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+    z-index: 1;
+}
+
+.form-stepper-circle {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+    color: var(--contrast-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.form-stepper-active .form-stepper-circle {
+    background-color: #2e7d32;
+    color: var(--contrast-color);
+}
+
+.form-stepper-list .label {
+    margin-top: 10px;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 14px;
+}
+
+.form-stepper-active .label {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-step h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #0a4a1a;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--heading-color);
+    margin-bottom: 8px;
+}
+
+.form-control {
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    background-color: var(--surface-color);
+    color: var(--default-color);
+}
+
+.form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+/* Navigation Buttons */
+.btn-navigate-form-step {
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+    border: 2px solid #2e7d32;
+    color: #2e7d32;
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2e7d32;
+    color: var(--contrast-color);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Results Section */
+#results {
+    display: none;
+    padding: 40px;
+    background: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    text-align: center;
+}
+
+#totalConsumption {
+    font-size: 3rem;
+    color: #0a4a1a;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.consumption-card {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+
+.excellent {
+    background-color: #28a745;
+}
+
+.good {
+    background-color: #17a2b8;
+}
+
+.average {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.needs-improvement {
+    background-color: #dc3545;
+}
+
+.consumption-breakdown {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.consumption-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .energy-calculator-container {
+    padding: 30px 20px;
+    margin: 80px auto 40px;
+    }
+    
+    .form-stepper-list .label {
+    font-size: 12px;
+    }
+    
+    .calculator-header h1 {
+    font-size: 28px;
+    }
+    
+    .calculator-header p {
+    font-size: 16px;
+    }
+}
+
+/* Custom Radio Buttons */
+.form-check-input:checked {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+/* Alert Styling */
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Input Group Styling */
+.input-group-text {
+    background-color: color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--default-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+/* Chart Container */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    margin: 30px 0;
+}

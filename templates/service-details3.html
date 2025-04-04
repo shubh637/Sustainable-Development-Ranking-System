@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>EnergyTrack | Company Energy Consumption Calculator</title>
+  <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+  <meta name="description" content="Calculate your company's energy consumption and identify opportunities for efficiency improvements">
+  
+   <!-- Favicons -->
+   <link href="{% static  'assets/img/favicon.png' %}" rel="icon">
+   <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+ 
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com" rel="preconnect">
+   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
+   <!-- Vendor CSS Files -->
+   <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+ 
+   <!-- Main CSS File -->
+   <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/css/form3.css' %}" rel="stylesheet">
+   
+ 
+
+</head>
+
+<body>
+  <!-- Header -->
+  {% include 'header.html'%}
+
+  <main class="main">
+    <div class="container">
+      <div class="energy-calculator-container">
+        <!-- Calculator Header -->
+        <div class="calculator-header">
+          <h1>Energy Consumption Calculator</h1>
+          <p>Measure your company's energy usage and identify opportunities for efficiency improvements</p>
+        </div>
+        
+        <!-- Progress Steps -->
+        <ul class="form-stepper">
+          <li class="form-stepper-list form-stepper-active" step="1">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>1</span>
+              </span>
+              <div class="label">Company Info</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="2">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>2</span>
+              </span>
+              <div class="label">Electricity</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="3">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>3</span>
+              </span>
+              <div class="label">Fuel & Transport</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="4">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>4</span>
+              </span>
+              <div class="label">Other Sources</div>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Form Steps -->
+        <form id="energyCalculatorForm" action="{% url 'energy_calculator'%}" method="POST">
+          <!-- Step 1 - Company Info -->
+           {% csrf_token%}
+          <section id="step-1" class="form-step active">
+            <h2>Company Information</h2>
+            
+            <div class="mb-4">
+              <label for="companyName" class="form-label">Company Name</label>
+              <input type="text" class="form-control" id="companyName" placeholder="Enter your company name">
+            </div>
+            
+            <div class="mb-4">
+              <label for="industryType" class="form-label">Industry Type</label>
+              <select class="form-control" id="industryType">
+                <option value="">Select your industry</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="office">Office/Professional Services</option>
+                <option value="retail">Retail</option>
+                <option value="hospitality">Hospitality</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="education">Education</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="employeeCount" class="form-label">Number of Employees</label>
+              <input type="number" class="form-control" id="employeeCount" placeholder="Enter total employees">
+            </div>
+            
+            <div class="mb-4">
+              <label for="facilitySize" class="form-label">Facility Size (square meters)</label>
+              <input type="number" class="form-control" id="facilitySize" placeholder="Enter total area">
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 2 - Electricity -->
+          <section id="step-2" class="form-step">
+            <h2>Electricity Consumption</h2>
+            
+            <div class="mb-4">
+              <label for="monthlyElectricity" class="form-label">Monthly Electricity Consumption (kWh)</label>
+              <input type="number" name="monthlyElectricity" class="form-control" id="monthlyElectricity" placeholder="Enter kWh usage">
+            </div>
+            
+            <div class="mb-4">
+              <label for="electricitySource" class="form-label">Primary Electricity Source</label>
+              <select class="form-control" id="electricitySource">
+                <option value="">Select primary source</option>
+                <option value="grid">Grid (Standard Utility)</option>
+                <option value="renewable">Renewable Energy</option>
+                <option value="mixed">Mixed Sources</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="renewablePercentage" class="form-label">Percentage from Renewable Sources</label>
+              <input type="number" class="form-control" id="renewablePercentage" min="0" max="100" placeholder="Enter percentage (0-100)">
+            </div>
+            
+            <div class="mb-4">
+              <label for="lightingType" class="form-label">Primary Lighting Type</label>
+              <select class="form-control" id="lightingType">
+                <option value="">Select lighting type</option>
+                <option value="led">LED</option>
+                <option value="cfl">CFL</option>
+                <option value="incandescent">Incandescent</option>
+                <option value="halogen">Halogen</option>
+                <option value="mixed">Mixed</option>
+              </select>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="1"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 3 - Fuel & Transport -->
+          <section id="step-3" class="form-step">
+            <h2>Fuel and Transportation</h2>
+            
+            <div class="mb-4">
+              <label for="vehicleFuel" class="form-label">Monthly Vehicle Fuel Consumption (liters)</label>
+              <input type="number" class="form-control" name="vehicleFuel" id="vehicleFuel" placeholder="Enter liters of fuel">
+            </div>
+            
+            <div class="mb-4">
+              <label for="fuelType" class="form-label">Primary Vehicle Fuel Type</label>
+              <select class="form-control" name="fuelType" id="fuelType">
+                <option value="">Select fuel type</option>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+                <option value="electric">Electric</option>
+                <option value="hybrid">Hybrid</option>
+                <option value="cng">CNG</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="businessTravel" class="form-label">Monthly Business Travel (km)</label>
+              <input type="number" class="form-control" id="businessTravel" placeholder="Enter kilometers traveled">
+            </div>
+            
+            <div class="mb-4">
+              <label for="heatingFuel" class="form-label">Monthly Heating Fuel Consumption (if applicable)</label>
+              <input type="number" class="form-control" name="heatingFuel" id="heatingFuel" placeholder="Enter liters or cubic meters">
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="4">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 4 - Other Sources -->
+          <section id="step-4" class="form-step">
+            <h2>Other Energy Sources</h2>
+            
+            <div class="mb-4">
+              <label for="waterConsumption" class="form-label">Monthly Water Consumption (cubic meters)</label>
+              <input type="number" class="form-control" name="waterConsumption" id="waterConsumption" placeholder="Enter cubic meters">
+            </div>
+            
+            <div class="mb-4">
+              <label for="wasteGenerated" class="form-label">Monthly Waste Generated (kg)</label>
+              <input type="number" class="form-control" id="wasteGenerated" placeholder="Enter kilograms">
+            </div>
+            
+            <div class="mb-4">
+              <label class="form-label">Do you have energy efficiency measures in place?</label>
+              <div class="alert alert-danger" role="alert" id="efficiency-alert" style="display: none;">
+                <strong>Oops!</strong> Please select an option
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="efficiencyOptionsRadios" id="efficiencyYes" value="yes">
+                <label class="form-check-label" for="efficiencyYes">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="efficiencyOptionsRadios" id="efficiencyNo" value="no">
+                <label class="form-check-label" for="efficiencyNo">No</label>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label class="form-label">Do you track your energy consumption regularly?</label>
+              <div class="alert alert-danger" role="alert" id="tracking-alert" style="display: none;">
+                <strong>Oops!</strong> Please select an option
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="trackingOptionsRadios" id="trackingYes" value="yes">
+                <label class="form-check-label" for="trackingYes">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="trackingOptionsRadios" id="trackingNo" value="no">
+                <label class="form-check-label" for="trackingNo">No</label>
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button id="calculate-btn" type="submit" class="btn btn-primary">Calculate Consumption <i class="bi bi-calculator"></i></button>
+            </div>
+          </section>
+        </form>
+       
+      </div>
+    </div>
+  </main>
+
+ {% include 'footer.html' %}
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Calculator Logic -->
+  <script src="{% static 'assets/js/form1.js' %}" defer></script>
+</body>
+</html>

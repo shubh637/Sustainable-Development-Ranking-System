@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>EcoRank | Carbon Calculator</title>
+  <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+  <meta name="description" content="Calculate your institution's carbon footprint with EcoRank's sustainability tools">
+  
+   <!-- Favicons -->
+   <link href="{% static  'assets/img/favicon.png' %}" rel="icon">
+   <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+ 
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com" rel="preconnect">
+   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
+   <!-- Vendor CSS Files -->
+   <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+   <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+ 
+   <!-- Main CSS File -->
+   <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+  <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/form1.css' %}">
+</head>
+
+<body>
+ 
+
+  {% include 'header.html' %}
+  <main class="main">
+    <div class="container">
+      <div class="carbon-calculator-container">
+        <!-- Calculator Header -->
+        <div class="calculator-header">
+          <h1 >Institutional Carbon Calculator</h1>
+          <p>Measure your organization's environmental impact and discover ways to improve your sustainability</p>
+        </div>
+        
+        <!-- Progress Steps -->
+        <ul class="form-stepper">
+          <li class="form-stepper-list form-stepper-active" step="1">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>1</span>
+              </span>
+              <div class="label">Institution Details</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="2">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>2</span>
+              </span>
+              <div class="label">Fuel & Energy</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="3">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>3</span>
+              </span>
+              <div class="label">Other Expenses</div>
+            </div>
+          </li>
+          <li class="form-stepper-list" step="4">
+            <div class="mx-2">
+              <span class="form-stepper-circle">
+                <span>4</span>
+              </span>
+              <div class="label">Recycling</div>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Form Steps -->
+        <form id="carbonCalculatorForm" method="POST" action="{% url 'carbon_calculator' %}">
+          {% csrf_token%}
+          <!-- Step 1 -->
+          <section id="step-1" class="form-step active">
+            <h2>Institution Details</h2>
+            
+            <div class="mb-4">
+              <label for="Iname" class="form-label">Institution Name</label>
+              <input type="text" class="form-control" id="Iname" placeholder="Enter your institution name" >
+            </div>
+            
+            <div class="mb-4">
+              <label for="emnum" class="form-label">Number of Employees</label>
+              <input type="number" class="form-control" id="emnum" placeholder="Enter total employees">
+            </div>
+            
+            <div class="mb-4">
+              <label for="warehousenum" class="form-label">Number of Buildings/Warehouses</label>
+              <input type="number" class="form-control" id="warehousenum" placeholder="Enter total properties">
+            </div>
+            
+            <div class="mb-4">
+              <label for="area" class="form-label">Total Facility Area (m²)</label>
+              <input type="number" class="form-control" id="area" placeholder="Enter square meters">
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 2 -->
+          <section id="step-2" class="form-step">
+            <h2>Fuel and Energy Consumption</h2>
+            
+            <div class="mb-4">
+              <label for="elec" class="form-label">Electricity Usage (kWh)</label>
+              <input type="number"  name="elec" class="form-control" id="elec" placeholder="Enter annual kWh usage">
+            </div>
+            
+            <div class="mb-4">
+              <label for="gas" class="form-label">Natural Gas Consumption (cubic meters)</label>
+              <input type="number" name="gas" class="form-control" id="gas" placeholder="Enter annual consumption">
+            </div>
+            
+            <div class="mb-4">
+              <label for="vefeul" class="form-label">Vehicle Fuel Usage (liters)</label>
+              <input type="number" name="vefeul" class="form-control" id="vefeul" placeholder="Enter annual vehicle fuel">
+            </div>
+            
+            <div class="mb-4">
+              <label for="machine" class="form-label">Machinery Fuel Usage (liters)</label>
+              <input type="number" name="machine" class="form-control" id="machine" placeholder="Enter annual machinery fuel">
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="1"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 3 -->
+          <section id="step-3" class="form-step">
+            <h2>Other Expenses</h2>
+            
+            <div class="mb-4">
+              <label for="flights-4-less" class="form-label">Short Flights (4 hours)</label>
+              <input type="number" name="flights-4-less" class="form-control" id="flights-4-less" min="0" placeholder="Number of flights">
+            </div>
+            
+            <div class="mb-4">
+              <label for="flights-4-more" class="form-label">Long Flights (4+ hours)</label>
+              <input type="number" name="flights-4-more" class="form-control" id="flights-4-more" min="0" placeholder="Number of flights">
+            </div>
+            
+            <div class="mb-4">
+              <label for="transexp" class="form-label">Transport Expenses (₹)</label>
+              <div class="input-group">
+                <span class="input-group-text">₹</span>
+                <input type="number" name="transexp" class="form-control" id="transexp" placeholder="Enter amount">
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label for="invenexp" class="form-label">Inventory Expenses (₹)</label>
+              <div class="input-group">
+                <span class="input-group-text">₹</span>
+                <input type="number" name="invenexp" class="form-control" id="invenexp" placeholder="Enter amount">
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label for="servicesexp" class="form-label">Services Expenses (₹)</label>
+              <div class="input-group">
+                <span class="input-group-text">₹</span>
+                <input type="number"  name="servicesexp" class="form-control" id="servicesexp" placeholder="Enter amount">
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="2"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="4">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </section>
+          
+          <!-- Step 4 -->
+          <section id="step-4" class="form-step">
+            <h2>Recycling Practices</h2>
+            
+            <div class="mb-4">
+              <label class="form-label">Do you recycle newspaper?</label>
+              <div class="alert alert-danger" role="alert" id="newspaper-alert" style="display: none;">
+                <strong>Oops!</strong> Please select an option
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="newspaperOptionsRadios" id="optionsRadio1" value="yes">
+                <label class="form-check-label" for="optionsRadio1">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="newspaperOptionsRadios" id="optionsRadio2" value="no">
+                <label class="form-check-label" for="optionsRadio2">No</label>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label class="form-label">Do you recycle aluminum and tin?</label>
+              <div class="alert alert-danger" role="alert" id="alum-tin-alert" style="display: none;">
+                <strong>Oops!</strong> Please select an option
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="alumtinOptionsRadios" id="optionsRadio3" value="yes">
+                <label class="form-check-label" for="optionsRadio3">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="alumtinOptionsRadios" id="optionsRadio4" value="no">
+                <label class="form-check-label" for="optionsRadio4">No</label>
+              </div>
+            </div>
+            
+            <div class="button-group">
+              {% if profile_id %}
+               <input type="hidden" name="profile_id" value="{{ profile_id }}">
+              {% endif %}
+              <button class="btn btn-navigate-form-step btn-outline-primary" type="button" step_number="3"><i class="bi bi-arrow-left"></i> Previous</button>
+              <button id="calculate-btn" type="submit" class="btn btn-primary">Calculate Footprint <i class="bi bi-calculator"></i></button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </main>
+ 
+{% include 'footer.html' %}
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Calculator Logic -->
+  <script src="{% static 'assets/js/form1.js' %}" defer></script>
+</body>
+</html>

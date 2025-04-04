@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation History | Sustainability Dashboard</title>
+    <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+    <meta name="description" content="Calculate your company's energy consumption and identify opportunities for efficiency improvements">
+  
+    <!-- Favicons -->
+    <link href="{% static  'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static  'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{% static  'assets/css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/history.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="history-container">
+        <div class="history-header">
+            <div class="header-content">
+                <h1 class="history-title">
+                    <i class="fas fa-chart-line title-icon"></i>
+                    Sustainability History
+                </h1>
+                <p class="history-subtitle">Track your sustainability progress over time</p>
+            </div>
+            <a href="{% url 'dashboard' %}" class="btn btn-history btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+        
+        {% if histories %}
+        <div class="history-card">
+            <div class="card-header">
+                <div class="stats-summary">
+                    <div class="stat-item">
+                        <span class="stat-value">{{ histories|length }}</span>
+                        <span class="stat-label">Records</span>
+                    </div>
+                    <div class="stat-item">
+                    {% if first_entry %}
+                        <span class="stat-value">{{ first_entry.created_at|date }}</span>
+                    {% else %}
+                        <span class="stat-value">N/A</span>
+                    {% endif %}
+                        <span class="stat-label">First Entry</span>
+                    </div>
+                    <div class="stat-item">
+                    {% if last_entry %}
+                        <span class="stat-value">{{ last_entry.created_at|date }}</span>
+                    {% else %}
+                        <span class="stat-value">N/A</span>
+                    {% endif %}
+                    
+                        <span class="stat-label">Last Entry</span>
+                    </div>
+                </div>
+                <div class="table-actions">
+                    <button class="btn-action export-btn btn-primary">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <button class="btn-action filter-btn btn-primary">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                </div>
+            </div>
+        
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable">Date <i class="fas fa-sort"></i></th>
+                            <th>Carbon Score</th>
+                            <th>Energy</th>
+                            <th>Waste</th>
+                            <th>EEVTA</th>
+                            <th>Cost Benfit</th>
+                            <th>Sustainability</th>
+                            <th>ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for history in histories %}
+                        <tr>
+                            <td class="date-cell">
+                                <div class="date-wrapper">
+                                    <span class="date-day">{{ history.created_at|date:"d" }}</span>
+                                    <span class="date-month">{{ history.created_at|date:"M" }}</span>
+                                    <span class="date-year">{{ history.created_at|date:"Y" }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="metric-container">
+                                    <span class="metric-value">{{ history.carbon_emissions|floatformat:2 }}</span>
+                                    <span class="unit">CO₂</span>
+                                    {% if history.prev_carbon_emissions is not None %}
+                                        <div class="trend-indicator {% if history.carbon_emissions < history.prev_carbon_emissions %}trend-up{% else %}trend-down{% endif %}">
+                                            <i class="fas fa-arrow-{% if history.carbon_emissions < history.prev_carbon_emissions %}down{% else %}up{% endif %}"></i>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="metric-container">
+                                    <span class="metric-value">{{ history.energy_consumption|floatformat:2 }}</span>
+                                    <span class="unit">kWh</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="metric-container">
+                                    <span class="metric-value">{{ history.waste_production|floatformat:2 }}</span>
+                                    <span class="unit">kg</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="metric-container">
+                                    <span class="metric-value">
+                                        {{ history.eevta_score|floatformat:0 }}
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="score-container">
+                                    <span class="score-badge 
+                                        {% if history.cost_benefit >= 80 %}score-excellent
+                                        {% elif history.cost_benefit >= 50 %}score-good
+                                        {% else %}score-poor{% endif %}">
+                                        {{ history.cost_benefit|floatformat:0 }}%
+                                    </span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: {{ history.cost_benefit }}%"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="score-container">
+                                    <span class="score-badge 
+                                        {% if history.sustainability_score >= 80 %}score-excellent
+                                        {% elif history.sustainability_score >= 50 %}score-good
+                                        {% else %}score-poor{% endif %}">
+                                        {{ history.sustainability_score|floatformat:0 }}%
+                                    </span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: {{ history.sustainability_score }}%"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="score-container">
+                                    <span class="metric-value score-badge 
+                                        {% if history.roi >= 80 %}score-excellent
+                                        {% elif history.roi >= 50 %}score-good
+                                        {% else %}score-poor{% endif %}">
+                                        {{ history.roi|floatformat:2 }}%
+                                    </span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: {{ history.roi }}%"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="card-footer">
+                <div class="pagination-info">
+                    Showing 1-{{ histories|length }} of {{ histories|length }} entries
+                </div>
+                <div class="pagination-controls">
+                    <button class="btn-pagination" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="page-indicator">1</span>
+                    <button class="btn-pagination">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon">
+                <i class="fas fa-history"></i>
+            </div>
+            <h3 class="empty-state-title">No Calculation History Found</h3>
+            <p class="empty-state-text">
+                Your sustainability calculations will appear here after you use our assessment tools.
+            </p>
+            <div class="empty-state-actions">
+                <a href="{% url 'index' %}#services" class="btn btn-primary">
+                    <i class="fas fa-calculator"></i> Start Calculating
+                </a>
+                <a href="{% url 'index' %}#about" class="btn btn-outline">
+                    <i class="fas fa-question-circle"></i> Learn How
+                </a>
+            </div>
+        </div>
+        {% endif %}
+   </div>
+   {% include 'footer.html' %}  
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'assets/js/history.js' %}"></script>
+     
+</body>
+
+</html>

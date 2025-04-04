@@ -1,0 +1,38 @@
+ <!-- Header -->
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</head>
+<body>
+ 
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #000000;">
+     <div class="container-fluid container-xl position-relative d-flex align-items-center">
+ 
+       <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
+         <!-- Uncomment the line below if you also wish to use an image logo -->
+         <img src="{% static  'assets/img/logo.jpg' %}"  style="border-radius: 100px" alt="logo">
+         <h1 class="sitename"> EcoRank </h1>
+       </a>
+ 
+       <nav id="navmenu" class="navmenu">
+         <ul>
+           <li><a href="{% url 'index' %}" class="active">Home</a></li>
+           <li><a href="{% url 'index' %}#about">About</a></li>
+           <li><a href="{% url 'index' %}#services">Calculators</a></li>
+           <li><a href="{% url 'index' %}#contact">Contact</a></li>
+           <li><a href="{% url 'history' %}">History</a></li>
+           <li><a href="{% url 'logout' %}">logout</a></li>
+         </ul>
+         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+       </nav>
+ 
+     </div>
+   </header>
+  
+</body>
+</html>
+<!-- Results Section -->

@@ -1,0 +1,142 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Main content should take up the remaining space */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Calculator Container */
+.carbon-calculator-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Calculator Header */
+.calculator-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.calculator-header p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Results Section */
+#results {
+    padding: 30px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.result-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+}
+
+.result-value {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sustainability {
+    color: #28a745;
+}
+
+.financial {
+    color: #007bff;
+}
+
+.analysis {
+    color: #dc3545;
+}
+
+.result-card h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.result-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Buttons */
+#recalculate-btn {
+    background: #007bff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#recalculate-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary Button with Custom Color */
+.btn-secondary {
+    background-color: #ff5733 !important; /* Custom Orange */
+    color: white !important;
+    border-color: #ff5733 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #d9431f !important; /* Darker Orange */
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .result-card {
+        margin-bottom: 20px;
+    }
+    .result-value {
+        font-size: 28px;
+    }
+}
+
