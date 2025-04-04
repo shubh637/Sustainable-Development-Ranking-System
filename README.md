@@ -1,5 +1,5 @@
 # Sustainable Development Ranking System
-Title: Project Proposal: Sustainable Development Ranking System
+
 
 ## Objective:
 Develop a ranking system for organizations based on their contributions towards achieving Sustainable Development Goals (SDGs).
