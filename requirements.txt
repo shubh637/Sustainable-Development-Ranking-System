@@ -102,6 +102,7 @@ google-pasta==0.2.0
 googleapis-common-protos==1.65.0
 grpcio==1.71.0
 grpcio-status==1.71.0
+gunicorn==23.0.0
 h11==0.14.0
 h5py==3.11.0
 holidays==0.64
