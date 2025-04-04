@@ -25,7 +25,7 @@ This project aims to create a comprehensive assessment framework to evaluate org
 - Fosters collaboration and knowledge sharing among organizations to accelerate progress towards the SDGs.
 
 
-## 🔗 Project Link:
+## 🔗 Live App Link:
 [![Project](https://img.shields.io/badge/Visit-APP-orange?style=for-the-badge)](https://sustainable-development-ranking-system.onrender.com/)
 
 ## Sustainability Development Goals
