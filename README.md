@@ -31,7 +31,7 @@ This project aims to create a comprehensive assessment framework to evaluate org
 ## Sustainability Development Goals
 [![Watch the video](https://img.youtube.com/vi/7dzFbP2AgFo/maxresdefault.jpg)](https://www.youtube.com/watch?v=7dzFbP2AgFo)
 
-## 🖼️ Screenshots:
+## 🖼️Application images:
 <h2 align="center">Interface</h2>  
 <img src="https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/project%20images/Screenshot%202025-04-04%20144244.png" alt="landing page" />
 
