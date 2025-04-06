@@ -264,13 +264,13 @@
                         <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
                                 <span
-                                    class="badge {% if energy_change >= 0 %}bg-success{% else %}bg-danger{% endif %} rounded-circle p-2">
+                                    class="badge {% if energy_change <= 0 %}bg-success{% else %}bg-danger{% endif %} rounded-circle p-2">
                                     <i class="bi bi-arrow-{% if energy_change >= 0 %}up{% else %}down{% endif %}"></i>
                                 </span>
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="mb-0">Energy Consumption</h6>
-                                <p class="mb-0 {% if energy_change >= 0 %}text-success{% else %}text-danger{% endif %}">
+                                <p class="mb-0 {% if energy_change <= 0 %}text-success{% else %}text-danger{% endif %}">
                                     {% if energy_change >= 0 %}
                                     Increased by {{ energy_change }} points
                                     {% else %}
@@ -284,13 +284,13 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0">
                                 <span
-                                    class="badge bg-{% if waste_change < 0 %}success{% else %}danger{% endif %} rounded-circle p-2">
+                                    class="badge bg-{% if waste_change <= 0 %}success{% else %}danger{% endif %} rounded-circle p-2">
                                     <i class="bi bi-recycle"></i>
                                 </span>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-0">Waste Management Update</h6>
-                                <p class="mb-0 text-muted">
+                                <h6 class="mb-0">Waste Production Update</h6>
+                                <p class="mb-0 {% if waste_change <= 0 %}text-success{% else %}text-danger{% endif %}">
                                     {% if waste_change < 0 %} Reduced by {{ waste_change}}% {% else %} Increased by {{ waste_change }}% {% endif %} </p>
                                         <small class="text-muted">Updated on {{ last_update}}</small>
                             </div>
