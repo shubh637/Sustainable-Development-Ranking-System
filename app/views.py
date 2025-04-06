@@ -223,6 +223,8 @@ def energy_calculator(request):
                 profile.energy_total = total_consumption
                 profile.electricity_kwh = electricity_kwh
                 profile.save()
+                # Calculate industry averages
+                industry_avg_energy = SustainabilityProfile.objects.aggregate(avg_energy=Avg('energy_total'))
                 
                 benchmark_data = {
                     "EXCELLENT": {"color": "success", "range": "Below industry average"},
@@ -238,6 +240,7 @@ def energy_calculator(request):
                     "Conduct regular energy audits"
                 ]
                 consumption_breakdown = {
+                        "Industry Average":{"id":"industry_avg","value":round(industry_avg_energy['avg_energy'],2),"unit":"units"},
                         "Electricity": {"id": "electricityBreakdown", "value": electricity_kwh, "unit": "kWh"},
                         "Vehicle Fuel": {"id": "fuelBreakdown", "value":  fuel_kwh, "unit": "liters"},
                         "Heating Fuel": {"id": "heatingBreakdown", "value": heating_kwh , "unit": "units"},
