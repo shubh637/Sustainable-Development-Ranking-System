@@ -10,6 +10,8 @@
     --silver: #C0C0C0;
     --bronze: #CD7F32;
     --my-company: #28a745;
+    --my-company-rgb: #28a745;
+    
 }
 
 body {
@@ -58,7 +60,7 @@ body {
 }
 
 .highlight-row td {
-    background-color:rgba(var(--my-company-rgb), 0.2);
+    background-color:rgba(var(--my-company-rgb), 0.1) !important;
     font-weight: 500;
 }
 
