@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.body.classList.add('mobile-nav-active');
     // Navigation between steps
     document.querySelectorAll(".btn-outline-primary").forEach(button => {
         button.addEventListener("click", function () {
@@ -9,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     // Recalculate button
     document.getElementById("recalculate-btn").addEventListener("click", function () {
-        // document.getElementById("results").style.display = "none";
-        // document.getElementById("sustainabilityForm").style.display = "block";
         navigateToStep(1);
     });
 
