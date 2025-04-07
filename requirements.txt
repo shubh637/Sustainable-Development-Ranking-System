@@ -3,3 +3,4 @@ gunicorn          # WSGI HTTP server
 psycopg2-binary   # if using PostgreSQL
 dj-database-url   # helpful for parsing DB URLs (optional but nice)
 whitenoise        # for static files
+pandas
