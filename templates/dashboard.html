@@ -323,6 +323,14 @@
 
         // Retrieve and parse JSON data safely
         var view_data = (JSON.parse('{{context_data|safe}}')).context;
+        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+     
+        function mobileNavToogle() {
+             document.querySelector('body').classList.toggle('mobile-nav-active');
+             mobileNavToggleBtn.classList.toggle('bi-list');
+             mobileNavToggleBtn.classList.toggle('bi-x');
+           }
+        mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
         // Radar Chart
         const radarCtx = document.getElementById('radarChart').getContext('2d');
