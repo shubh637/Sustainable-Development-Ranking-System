@@ -1,34 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Form submission handler
-    // document.getElementById("sustainabilityForm").addEventListener("submit", function (e) {
-    //     e.preventDefault();
-
-    //     let formData = new FormData(this);
-
-    //     fetch("", {
-    //         method: "POST",
-    //         body: formData,
-    //         headers: {
-    //             'X-Requested-With': 'XMLHttpRequest' // Identify as AJAX request
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Update results with server data
-    //         document.getElementById("score").textContent = data.sustainability_score;
-    //         document.getElementById("roi").textContent = data.roi + "%";
-    //         document.getElementById("benef").textContent = data.cost_benefit.toFixed(1) + "x";
-
-    //         // Show results
-    //         document.getElementById("sustainabilityForm").style.display = "none";
-    //         document.getElementById("results").style.display = "block";
-
-    //         // Scroll to results
-    //         document.getElementById("results").scrollIntoView({ behavior: 'smooth', block: 'start' });
-    //     })
-    //     .catch(error => console.error("Error:", error));
-    // });
-
+    document.body.classList.add('mobile-nav-active');
     // Navigation between steps
     document.querySelectorAll(".btn-outline-primary").forEach(button => {
         button.addEventListener("click", function () {
@@ -36,12 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
             navigateToStep(stepNumber);
         });
     });
-
-    // Calculate button (submits the form)
-    // document.getElementById("calculate-btn").addEventListener("click", function () {
-    //     document.getElementById("sustainabilityForm").dispatchEvent(new Event('submit'));
-    // });
-
     // Recalculate button
     document.getElementById("recalculate-btn").addEventListener("click", function () {
         // document.getElementById("results").style.display = "none";
