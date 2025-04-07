@@ -715,4 +715,4 @@ def import_sustainability_profiles(csv_file_path):
       )
 
   print("Sustainability profiles imported successfully!")
-import_sustainability_profiles("static\\cleaned_company_data.csv")
+import_sustainability_profiles("static/cleaned_company_data.csv")
