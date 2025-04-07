@@ -29,7 +29,8 @@ This project aims to create a comprehensive assessment framework to evaluate org
 [![Project](https://img.shields.io/badge/Visit-APP-orange?style=for-the-badge)](https://sustainable-development-ranking-system.onrender.com/)
 
 ## Sustainability Development Goals
-[![Watch the video](https://youtu.be/7dzFbP2AgFo?feature=shared)](https://youtu.be/7dzFbP2AgFo?feature=shared)
+[![Watch the video](https://img.youtube.com/vi/7dzFbP2AgFo/0.jpg)](https://youtu.be/7dzFbP2AgFo)
+
 
 ## 🖼️Application images:
 <h2 align="center">Interface</h2>  
