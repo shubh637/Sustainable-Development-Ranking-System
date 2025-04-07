@@ -691,6 +691,7 @@ def calculation_history(request):
         'first_entry': first_entry,
         'last_entry': last_entry,
     })
+import pandas as pd    
 def import_sustainability_profiles(csv_file_path):
   df = pd.read_csv(csv_file_path)
 
