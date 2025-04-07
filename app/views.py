@@ -691,4 +691,27 @@ def calculation_history(request):
         'first_entry': first_entry,
         'last_entry': last_entry,
     })
+def import_sustainability_profiles(csv_file_path):
+  df = pd.read_csv(csv_file_path)
 
+  for index, row in df.iterrows():
+      # Fetch or create a user using company name (modify if needed)
+      user, created = User.objects.get_or_create(username=row["company_name"])
+
+      # Create or update the sustainability profile
+      profile, _ = SustainabilityProfile.objects.update_or_create(
+          user=user,
+          defaults={
+              "company_name": row["company_name"],
+              "carbon_score": row["carbon_score"],
+              "electricity_usage": row["electricity_usage"],
+              "total_waste": row["total_waste"],
+              "eevta_score": row["eevta_score"],
+              "sustainability_score": row["sustainability_score"],
+              "roi": row["roi"],
+              "cost_benefit": row["cost_benefit"],
+          }
+      )
+
+  print("Sustainability profiles imported successfully!")
+import_sustainability_profiles("static\\cleaned_company_data.csv")
