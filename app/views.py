@@ -655,26 +655,6 @@ def save_profile_to_history(user):
 
     return history  
 
-@login_required
-def calculation_history(request):
-    """
-    Display paginated calculation history for the logged-in user
-    """
-    # Get queryset ordered by most recent first
-    history_queryset = CalculationHistory.objects.filter(
-        user=request.user
-    ).order_by('-created_at')
-    
-    # Paginate results (10 per page)
-    paginator = Paginator(history_queryset, 10)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    
-    context = {
-        'page_obj': page_obj,
-        'histories': page_obj.object_list,  # For template compatibility
-    }
-    return render(request, 'calculation_history.html', context)
 
 @login_required
 def calculation_history(request):
