@@ -363,7 +363,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const yourCompanyName = '{{ your_company.id_value|escapejs }}' || null;
             let default_sort_order = document.getElementsByClassName('sort-option')[1].getAttribute('data-sort');
-            console.log(default_sort_order)
+          
             document.getElementById("rank").textContent = "#" + view_data.my_rank[default_sort_order]
             // Get the dropdown elements
             const dropdownItems = document.querySelectorAll('.sort-option');
@@ -423,10 +423,9 @@
                 }
 
                 data.forEach((company, index) => {
-                    console.log(company)
+                  
                     const isYourCompany = yourCompanyName && company.user__username == yourCompanyName;
-                    console.log(company.user_username == yourCompanyName)
-                    console.log(isYourCompany)
+                
                     const row = document.createElement('tr');
                     if (isYourCompany) {
                         row.classList.add('highlight-row');
