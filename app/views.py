@@ -170,9 +170,9 @@ def carbon_calculator(request):
                 df_grouped_last = df_filtered.groupby("country").last().reset_index()
 
                 data_values=df_grouped_last['value'].values
-                uk_values=data_values[0]
-                country_average=data_values[1]
-                world_average=data_values[2]
+                uk_values=round(data_values[0],2)
+                country_average=round(data_values[1],2)
+                world_average=round(data_values[2],2)
 
                 # Calculate score
                 carbon_score = (electricity_usage * 0.5 + gas_consumption * 2.3 +
