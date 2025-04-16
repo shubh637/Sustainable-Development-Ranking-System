@@ -10,6 +10,7 @@ from django.db.models import Avg, Max, Min, F, ExpressionWrapper, FloatField
 from .models import  CalculationHistory, SustainabilityProfile
 from django.core.paginator import Paginator
 from datetime import datetime
+import pandas as pd
 # Helper function to get or create user profile
 def get_user_profile(user):
     profile, created = SustainabilityProfile.objects.get_or_create(
@@ -151,6 +152,27 @@ def carbon_calculator(request):
                 services_exp = float(request.POST.get('servicesexp', '0') or 0)
                 recycles_newspaper = request.POST.get('newspaperOptionsRadios', 'no') == 'yes'
                 recycles_aluminum = request.POST.get('alumtinOptionsRadios', 'no') == 'yes'
+                df=pd.read_csv("../static/carbonmonitor-global_datas_2025-04-16.csv")
+                df["date"] = pd.to_datetime(df["date"], dayfirst=True)
+
+                # Define your filter
+                condition = ["WORLD", "India", "EU27 & UK"]
+                df_filtered = df[df["country"].isin(condition)]
+                df_filtered = df[
+                    (df["country"].isin(condition)) & 
+                    (df["sector"] == "Industry")
+                ]
+
+                # Sort by date just to be safe
+                df_filtered = df_filtered.sort_values(by="date")
+
+                # Get last (most recent) row for each country
+                df_grouped_last = df_filtered.groupby("country").last().reset_index()
+
+                data_values=df_grouped_last['value'].values
+                uk_values=data_values[0]
+                country_average=data_values[1]
+                world_average=data_values[2]
 
                 # Calculate score
                 carbon_score = (electricity_usage * 0.5 + gas_consumption * 2.3 +
@@ -171,9 +193,9 @@ def carbon_calculator(request):
                 profile.save()
                 
                 suggestions = [
-                    "The average footprint for people in India is 1.73 metric tons.",
-                    "The average for the European Union is about 6.4 metric tons.",
-                    "The average worldwide carbon footprint is about 5 metric tons.",
+                    f"The average footprint for people in India is {country_average} metric tons.",
+                    f"The average for the European Union is about {uk_values} metric tons.",
+                    f"The average worldwide carbon footprint is about {world_average} metric tons.",
                     "The worldwide target to combat climate change is 2 metric tons."]
                 carbon_categories = {
                     "EXCELLENT": {"range": "438,000 or below", "color": "success"},
@@ -190,7 +212,9 @@ def carbon_calculator(request):
                     "message":"This number represents the amount of greenhouse gases in units of carbon dioxide you emit per year",
                     'categories':carbon_categories,
                     'show_temp':True,
-                    "page":"service-details"
+                    "page":"service-details",
+                    "country_average":country_average,
+                    "world_average":world_average
                 })
 
         except Exception as e:
