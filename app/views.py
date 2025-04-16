@@ -152,27 +152,11 @@ def carbon_calculator(request):
                 services_exp = float(request.POST.get('servicesexp', '0') or 0)
                 recycles_newspaper = request.POST.get('newspaperOptionsRadios', 'no') == 'yes'
                 recycles_aluminum = request.POST.get('alumtinOptionsRadios', 'no') == 'yes'
-                df=pd.read_csv("static/carbonmonitor-global_datas_2025-04-16.csv")
-                df["date"] = pd.to_datetime(df["date"], dayfirst=True)
-
-                # Define your filter
-                condition = ["WORLD", "India", "EU27 & UK"]
-                df_filtered = df[df["country"].isin(condition)]
-                df_filtered = df[
-                    (df["country"].isin(condition)) & 
-                    (df["sector"] == "Industry")
-                ]
-
-                # Sort by date just to be safe
-                df_filtered = df_filtered.sort_values(by="date")
-
-                # Get last (most recent) row for each country
-                df_grouped_last = df_filtered.groupby("country").last().reset_index()
-
-                data_values=df_grouped_last['value'].values
-                uk_values=round(data_values[0],2)
-                country_average=round(data_values[1],2)
-                world_average=round(data_values[2],2)
+                
+                
+                uk_values=round(2.59,2)
+                country_average=round(2.06,2)
+                world_average=round(30.45,2)
 
                 # Calculate score
                 carbon_score = (electricity_usage * 0.5 + gas_consumption * 2.3 +
