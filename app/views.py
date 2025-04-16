@@ -152,7 +152,7 @@ def carbon_calculator(request):
                 services_exp = float(request.POST.get('servicesexp', '0') or 0)
                 recycles_newspaper = request.POST.get('newspaperOptionsRadios', 'no') == 'yes'
                 recycles_aluminum = request.POST.get('alumtinOptionsRadios', 'no') == 'yes'
-                df=pd.read_csv("..\\static\\carbonmonitor-global_datas_2025-04-16.csv")
+                df=pd.read_csv("static/carbonmonitor-global_datas_2025-04-16.csv")
                 df["date"] = pd.to_datetime(df["date"], dayfirst=True)
 
                 # Define your filter
