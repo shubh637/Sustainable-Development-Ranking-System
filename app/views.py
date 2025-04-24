@@ -305,12 +305,12 @@ def waste_calculator(request):
                 profile.save()
                 
                 waste_breakdown = {
-                    "Solid Waste": {"id": "solidWaste", "value": "solid_waste", "unit": "kg"},
-                    "Organic Waste": {"id": "organicWaste", "value": "organic_waste", "unit": "kg"},
-                    "E-Waste": {"id": "eWaste", "value": "e_waste", "unit": "kg"},
-                    "Hazardous Waste": {"id": "hazardousWaste", "value": "hazardous_waste", "unit": "kg"},
-                    "Total Waste Generated": {"id": "totalWaste", "value": "total_waste", "unit": "kg"},
-                    "Recycled Waste": {"id": "recycledWaste", "value": "recycled_waste", "unit": "kg"},
+                    f"Solid Waste": {"id": "solidWaste", "value": solid_waste, "unit": "kg"},
+                    f"Organic Waste": {"id": "organicWaste", "value": organic_waste, "unit": "kg"},
+                    f"E-Waste": {"id": "eWaste", "value": e_waste, "unit": "kg"},
+                    f"Hazardous Waste": {"id": "hazardousWaste", "value": hazardous_waste, "unit": "kg"},
+                    f"Total Waste Generated": {"id": "totalWaste", "value": total_waste, "unit": "kg"},
+                    f"Recycled Waste": {"id": "recycledWaste", "value": recycled_waste, "unit": "kg"},
                 }
                 waste_reduction_tips = [
                     "Implement a comprehensive recycling program",
