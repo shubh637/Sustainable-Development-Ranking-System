@@ -163,7 +163,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>`;
-       document.getElementById('applyFilters')?.addEventListener('click', function () {
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Add filter functionality
+        // document.getElementById('applyFilters')?.addEventListener('click', function() {
+        //     applyFilters();
+        //     bootstrap.Modal.getInstance(document.getElementById('filterModal')).hide();
+        // });
+        document.getElementById('applyFilters')?.addEventListener('click', function () {
             applyFilters();
         
             // Move focus away from modal (to opening button or fallback)
@@ -175,10 +182,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const modalInstance = bootstrap.Modal.getInstance(modalEl);
             modalInstance?.hide();
         });
+        
+        
     }
 
     function applyFilters() {
         const dateFrom = document.getElementById('dateFrom').value;
+        console.log(dateFrom)
         const dateTo = document.getElementById('dateTo').value;
         const scoreRange = document.getElementById('scoreRange').value;
         
@@ -192,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let dateMatch = true;
             if (dateFrom) {
                 const fromDate = new Date(dateFrom);
+                console.log(fromDate)
                 dateMatch = dateMatch && date >= fromDate;
             }
             if (dateTo) {
