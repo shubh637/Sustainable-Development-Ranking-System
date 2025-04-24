@@ -14,6 +14,7 @@
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;
+  --site-name:'Orbitron', sans-serif;
   --nav-font: "Inter",  sans-serif;
 }
 
@@ -233,11 +234,11 @@ h6 {
 }
 
 .header .logo {
-  line-height: 1;
+  line-height: 2;
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 50px;
   margin-right: 8px;
 }
 
@@ -246,6 +247,7 @@ h6 {
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
+  font-family: var(--site-name);
 }
 
 .header .cta-btn,
@@ -571,7 +573,7 @@ h6 {
 }
 
 .footer .footer-about .logo {
-  line-height: 1;
+  line-height: 2;
   margin-bottom: 25px;
 }
 
@@ -584,7 +586,7 @@ h6 {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 1px;
-  font-family: var(--heading-font);
+  font-family: var(--site-name);
   color: var(--heading-color);
 }
 
