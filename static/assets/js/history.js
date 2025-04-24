@@ -163,12 +163,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>`;
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
-        
-        // Add filter functionality
-        document.getElementById('applyFilters')?.addEventListener('click', function() {
+       document.getElementById('applyFilters')?.addEventListener('click', function () {
             applyFilters();
-            bootstrap.Modal.getInstance(document.getElementById('filterModal')).hide();
+        
+            // Move focus away from modal (to opening button or fallback)
+            const focusTarget = document.getElementById('openFilterBtn') || document.body;
+            focusTarget.focus();
+        
+            // Now it's safe to hide the modal
+            const modalEl = document.getElementById('filterModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalEl);
+            modalInstance?.hide();
         });
     }
 
