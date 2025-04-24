@@ -188,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyFilters() {
         const dateFrom = document.getElementById('dateFrom').value;
-        console.log(dateFrom)
         const dateTo = document.getElementById('dateTo').value;
         const scoreRange = document.getElementById('scoreRange').value;
         
@@ -197,16 +196,18 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.forEach(row => {
             const dateCell = row.cells[0].textContent.trim();
             const date = new Date(dateCell);
+            date.setHours(0, 0, 0, 0);
             
             // Date filter
             let dateMatch = true;
             if (dateFrom) {
                 const fromDate = new Date(dateFrom);
-                console.log(fromDate)
+                fromDate.setHours(0, 0, 0, 0)
                 dateMatch = dateMatch && date >= fromDate;
             }
             if (dateTo) {
                 const toDate = new Date(dateTo);
+                toDate.setHours(0, 0, 0, 0);
                 dateMatch = dateMatch && date <= toDate;
             }
             
