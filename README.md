@@ -25,9 +25,6 @@ This project aims to create a comprehensive assessment framework to evaluate org
 - Fosters collaboration and knowledge sharing among organizations to accelerate progress towards the SDGs.
 
 
-## 🔗 Live App Link:
-[![Project](https://img.shields.io/badge/Visit-APP-orange?style=for-the-badge)](https://sustainable-development-ranking-system.onrender.com/)
-
 ## Sustainability Development Goals(Click to watch video)
 [![Watch the video](https://img.youtube.com/vi/7dzFbP2AgFo/maxresdefault.jpg)](https://www.youtube.com/watch?v=7dzFbP2AgFo)
 
@@ -63,3 +60,6 @@ By developing a robust ranking system for evaluating organizations' contribution
 # logins
 ### username:shubham
 ### password:123
+
+## 🔗 Live App Link:
+[![Project](https://img.shields.io/badge/Visit-APP-orange?style=for-the-badge)](https://sustainable-development-ranking-system.onrender.com/)
