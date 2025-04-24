@@ -6,7 +6,7 @@
     <title>Login</title>
     
     {% load static %}
-    <link href="{% static  'assets/img/logo.jpg' %}" rel="icon">
+    <link href="{% static  'assets/img/logo.png' %}" rel="icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="{% static 'assets/css/login_register.css' %}">
 </head>
@@ -14,7 +14,7 @@
     
     <header>
         <div class="header-btns">
-            <img src="{% static 'assets/img/logo.jpg' %}" class="profile-img" alt="Profile">
+            <img src="{% static 'assets/img/logo.png' %}" class="profile-img" alt="Profile">
             <a href="{% url 'login' %}"><button class="header-btn active">Login</button></a>
             <a href="{% url 'register' %}"><button class="header-btn">Register</button></a>
         </div>
