@@ -34,7 +34,7 @@ This project aims to create a comprehensive assessment framework to evaluate org
 
 ## 🖼️Application images:
 <h2 align="center">Interface</h2>  
-<img src="https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/project%20images/Screenshot%202025-04-04%20144244.png" alt="landing page" />
+<img src="https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/project%20images/Screenshot%202025-04-04%20144244.png" />
 
 <h2 align="center">Calculators</h2>  
 <img src="https://github.com/shubh637/Sustainable-Development-Ranking-System/blob/master/project%20images/Screenshot%202025-04-04%20144634.png" alt="calculator 1" />
