@@ -616,7 +616,7 @@ def calculate_sustainability_score(request):
                 context = {
                     'heading':"Transforming Sustainability",
                     "sub_heading":"Sustainable process for better future.",
-                    'sustainability_score': round(sustainability_score),
+                    'sustainability_score': round(sustainability_score,2),
                     'roi': round(roi),
                     'cost_benefit': round(cost_benefit, 1),
                     'profile_id': profile.id,
