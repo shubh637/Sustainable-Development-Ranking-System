@@ -589,13 +589,13 @@ def calculate_sustainability_score(request):
                 investment = float(request.POST.get('inv', 0)or 0)
                 
                 # Calculate metrics
-                sustainability_score = min(
+                sustainability_score = round(min(
                     (max(0, 100 - carbon_emissions/10) * 0.3 + 
                      max(0, 100 - energy_consumption/1000) * 0.2 + 
                      max(0, 100 - waste_production/100) * 0.2 + 
                      eevta_score * 0.3), 
                     100
-                )
+                ),2)
                 
                 profit = revenue - costs
                 roi = (profit / investment) * 100 if investment > 0 else 0
